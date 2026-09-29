@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Special for You ✨</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#fbf7f2;--rose:#c98691;--rose-dark:#a85f6d;--brown:#44383a;--muted:#88797b;--white:#fffdfb;--line:rgba(68,56,58,.10)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{min-height:100vh;color:var(--brown);background:radial-gradient(circle at 10% 10%,#f4dfe0 0,transparent 27%),radial-gradient(circle at 90% 90%,#eee0d1 0,transparent 25%),var(--cream);font-family:'DM Sans',sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.25;background-image:radial-gradient(#b78a8f .7px,transparent .7px);background-size:18px 18px}
+.page{width:min(980px,92%);margin:auto;padding:42px 0 70px}
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:45px}
+.brand{font-family:'Playfair Display',serif;font-size:20px}
+.music{border:1px solid var(--line);background:#ffffffaa;backdrop-filter:blur(10px);padding:10px 16px;border-radius:999px;cursor:pointer;color:var(--brown);transition:.25s}
+.music:hover{transform:translateY(-2px);background:white}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:55px;align-items:center}
+.kicker{color:var(--rose-dark);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:15px}
+h1{font-family:'Playfair Display',serif;font-size:clamp(43px,7vw,76px);line-height:1.02;font-weight:500;letter-spacing:-2px}
+.hero-copy .sub{color:var(--muted);font-size:16px;margin:20px 0 28px;max-width:460px;line-height:1.8}
+.open{border:0;background:var(--brown);color:white;padding:15px 23px;border-radius:999px;font-weight:600;cursor:pointer;box-shadow:0 12px 28px #44383a22;transition:.25s}
+.open:hover{transform:translateY(-3px);background:#2f2729}
+.photo-stack{position:relative;height:440px}
+.photo{position:absolute;overflow:hidden;border:10px solid white;box-shadow:0 20px 45px #44383a18}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.p1{width:285px;height:350px;right:35px;top:0;transform:rotate(4deg)}
+.p2{width:220px;height:270px;left:5px;bottom:0;transform:rotate(-7deg)}
+.p3{width:155px;height:190px;right:0;bottom:25px;transform:rotate(8deg)}
+.section-title{font-family:'Playfair Display',serif;font-size:34px;font-weight:500;margin:80px 0 24px}
+.notes{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.note{padding:23px;background:#fffaf7;border:1px solid var(--line);border-radius:20px}
+.note .icon{font-size:24px;margin-bottom:12px}.note h3{font-size:15px;margin-bottom:7px}.note p{font-size:13px;line-height:1.65;color:var(--muted)}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.gcard{background:white;padding:9px;border:1px solid var(--line);box-shadow:0 10px 30px #44383a0b;transition:.3s}
+.gcard:hover{transform:translateY(-6px) rotate(.5deg)}
+.gcard img{width:100%;height:240px;object-fit:cover;display:block}
+.gcard figcaption{padding:13px 6px 7px;font-size:13px;color:var(--muted)}
+.quote{margin-top:70px;padding:50px 30px;text-align:center;background:#44383a;color:white;border-radius:30px}
+.quote p{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(24px,4vw,38px);line-height:1.35}.quote small{display:block;margin-top:18px;color:#d8c9ca}
+footer{text-align:center;color:var(--muted);font-size:12px;margin-top:40px}
+.modal{position:fixed;inset:0;background:#2c222399;backdrop-filter:blur(8px);display:grid;place-items:center;padding:20px;opacity:0;pointer-events:none;transition:.3s;z-index:10}
+.modal.active{opacity:1;pointer-events:auto}.letter{width:min(540px,100%);background:#fffdfb;padding:42px;border-radius:26px;box-shadow:0 30px 70px #0003;transform:translateY(18px);transition:.3s}
+.modal.active .letter{transform:none}.letter h2{font-family:'Playfair Display',serif;font-size:34px;margin-bottom:20px}.letter p{line-height:1.85;color:var(--muted);font-size:15px}
+.close{margin-top:25px;border:0;background:#f0d9da;color:var(--rose-dark);padding:12px 20px;border-radius:999px;font-weight:700;cursor:pointer}
+@media(max-width:760px){.hero{grid-template-columns:1fr;gap:15px}.photo-stack{height:380px}.gallery,.notes{grid-template-columns:1fr}.gcard img{height:300px}}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="topbar"><div class="brand">for caca ♡</div><button class="music" id="musicBtn">♪ music off</button></header>
+<main>
+<section class="hero">
+<div class="hero-copy">
+<div class="kicker">a little something for you</div>
+<h1>Untuk Caca yang baik hati</h1>
+<p class="sub">Aku ada pesan buat kamu. Sebuah halaman kecil yang dibuat khusus untuk menyimpan beberapa kata baik dari mahen, foto, dan tempat kembali kalau kamu sedang lelah.</p>
+<button class="open" onclick="openLetter()">Buka pesan khusus →</button>
+</div>
+<div class="photo-stack">
+<div class="photo p1"><img src="caca4.jpg.jpeg"></div>
+<div class="photo p2"><img src="caca2.jpg.jpeg"></div>
+<div class="photo p3"><img src="caca6.jpg.jpeg"></div>
+</div>
+</section>
+<h2 class="section-title">A few things about you</h2>
+<section class="notes">
+<article class="note"><div class="icon">✿</div><h3>Energi positifmu</h3><p>Kehadiranmu selalu berhasil bikin suasana di sekitarmu jadi lebih hangat dan tenang.</p></article>
+<article class="note"><div class="icon">✦</div><h3>Kehebatanmu</h3><p>Caramu berjuang dan menyelesaikan tantangan hidup selalu bikin bangga siapapun yang kenal kamu.</p></article>
+<article class="note"><div class="icon">♡</div><h3>Senyumanmu</h3><p>Senyummu sederhana, tapi efeknya luar biasa untuk mencerahkan hari-hari yang melelahkan.</p></article>
+</section>
+<h2 class="section-title">Little gallery</h2>
+<section class="gallery">
+<figure class="gcard"><img src="caca3.jpg.jpeg"><figcaption>pretty little moments ✿</figcaption></figure>
+<figure class="gcard"><img src="caca5.jpg.jpeg"><figcaption>keep smiling, always</figcaption></figure>
+<figure class="gcard"><img src="caca1.jpg.jpeg"><figcaption>you deserve good things</figcaption></figure>
+</section>
+<section class="quote"><p>“Kamu nggak harus selalu kuat. Istirahat juga bagian dari perjalanan.”</p><small>— untuk caca, kapan pun kamu membutuhkannya kamu boleh kesini lagi —</small></section>
+</main>
+<footer>dari mahen untuk cacyyy ♡</footer>
+</div>
+<div class="modal" id="modal"><div class="letter"><h2>Hai cacyy...</h2><p>Terima kasih ya sudah terus berjuang dan bertahan sampai hari ini. Dunia mungkin kadang berisik dan bikin lelah, tapi ingat kalau kamu selalu punya potensi luar biasa di dalam dirimu.<br><br>
+        Tetaplah jadi dirimu yang baik hati, ceria, dan penuh kehangatan. Jangan lupa istirahat kalau capek, ya cacyy! 🌟</p><button class="close" onclick="closeLetter()">Terima kasih ✨</button></div></div>
+<script>
+function openLetter(){document.getElementById('modal').classList.add('active')}
+function closeLetter(){document.getElementById('modal').classList.remove('active')}
+document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeLetter()});
+let audioCtx=null,playing=false,timer=null;
+const music=document.getElementById('musicBtn');
+function playMelody(){if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();const notes=[261.63,329.63,392,440,392,329.63];let i=0;timer=setInterval(()=>{if(!playing)return;const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type='sine';o.frequency.value=notes[i++%notes.length];g.gain.setValueAtTime(.035,audioCtx.currentTime);g.gain.exponentialRampToValueAtTime(.001,audioCtx.currentTime+1);o.connect(g);g.connect(audioCtx.destination);o.start();o.stop(audioCtx.currentTime+1)},850)}
+music.onclick=()=>{playing=!playing;music.textContent=playing?'♪ music on':'♪ music off';if(playing)playMelody();else if(timer)clearInterval(timer)};
+</script>
+</body>
+</html>
